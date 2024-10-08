@@ -3964,7 +3964,7 @@
 	)
 	(wire
 		(pts
-			(xy 172.72 81.28) (xy 171.45 81.28)
+			(xy 171.45 81.28) (xy 173.99 81.28)
 		)
 		(stroke
 			(width 0)
@@ -4461,6 +4461,16 @@
 			(type default)
 		)
 		(uuid "c00fb421-6e13-432d-8049-83b0035cd5d2")
+	)
+	(wire
+		(pts
+			(xy 173.99 80.01) (xy 173.99 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c0897f59-e11c-4260-bac5-9fdda0cc05ca")
 	)
 	(wire
 		(pts
@@ -10404,6 +10414,71 @@
 		)
 	)
 	(symbol
+		(lib_id "power:VBUS")
+		(at 173.99 80.01 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e978647b-728d-4298-aec4-b0f133441b72")
+		(property "Reference" "#PWR030"
+			(at 173.99 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VBUS"
+			(at 173.99 75.692 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 173.99 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 173.99 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VBUS\""
+			(at 173.99 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "067f4194-ad7d-4ab0-b325-f4693d1e2dc3")
+		)
+		(instances
+			(project "rocket2-load-cell"
+				(path "/d1f04dc8-a56c-4379-8ad0-2916e7244fc3"
+					(reference "#PWR030")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 266.7 33.02 0)
 		(unit 1)
@@ -10908,71 +10983,6 @@
 			(project "rocket2-load-cell"
 				(path "/d1f04dc8-a56c-4379-8ad0-2916e7244fc3"
 					(reference "#PWR011")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 172.72 81.28 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "fe3217da-ae2b-4cb4-a8fc-7f249738ba1d")
-		(property "Reference" "#PWR030"
-			(at 168.91 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 176.784 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 172.72 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 172.72 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 172.72 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d26d785e-c061-4b3e-9913-9bcb02935977")
-		)
-		(instances
-			(project "rocket2-load-cell"
-				(path "/d1f04dc8-a56c-4379-8ad0-2916e7244fc3"
-					(reference "#PWR030")
 					(unit 1)
 				)
 			)
