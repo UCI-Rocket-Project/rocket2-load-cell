@@ -5,10 +5,10 @@
 // Network Settings
 byte mac[] = { 0xA8, 0x61, 0x0A, 0xAE, 0xE0, 0x2D };
 IPAddress ip(10,0, 255, 2);
-IPAddress myDns(192, 168, 1, 1);
-IPAddress gateway(192, 168, 1, 1);
-IPAddress subnet(255, 255, 0, 0);
-unsigned int port = 23;       // Port to connect to
+IPAddress myDns(10, 0, 0, 1);
+IPAddress gateway(10, 0, 0, 1);
+IPAddress subnet(255, 0, 0, 0);
+unsigned int port = 10069;       // Port to connect to
 EthernetServer server(port);
 
 // HX711 Settings
@@ -33,7 +33,7 @@ void setup() {
 
     // Start Ethernet Connection
     Serial.println("Initializing Ethernet connection...");
-    Ethernet.begin(mac, ip);
+    Ethernet.begin(mac, ip, myDns, gateway, subnet);
 
     // Print Local IP Address
     Serial.print("Device IP Address: ");
@@ -50,11 +50,11 @@ void setup() {
 }
 
 void loop() {
-    EthernetClient client = server.available(); // Check for incoming clients
+    EthernetClient client = server.accept(); // Check for incoming clients
 
     if (client) {
         Serial.println("Client connected.");
-
+        scale.tare();             // Zero the scale
         while (client.connected()) {
             // Check if HX711 is ready
             if (scale.is_ready()) {

@@ -4,7 +4,7 @@ import time
 
 # Define Arduino server settings
 ARDUINO_IP = '10.0.255.2'  # IP address of the Arduino
-PORT = 23                  # Port to connect to
+PORT = 10069                  # Port to connect to
 
 # Define the packet format
 PACKET_FORMAT = 'Lf'  # Unsigned long (timestamp) and float (force)
@@ -35,7 +35,6 @@ def receive_data(client_socket):
             else:
                 print("Incomplete data received")
                 break
-            time.sleep(1)  # Adjust frequency as needed
     except Exception as e:
         print(f"Error receiving data: {e}")
     finally:
