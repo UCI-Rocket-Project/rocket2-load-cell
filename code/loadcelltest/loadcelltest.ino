@@ -44,7 +44,7 @@ void setup() {
 
     // Initialize HX711
     scale.begin(DOUT_PIN, SCK_PIN);
-    scale.set_scale(-3250.0f); // Adjust based on calibration
+    scale.set_scale(-3250.0f/2); // Adjust based on calibration
     scale.tare();             // Zero the scale
     Serial.println("Setup complete. Ready to serve clients.");
 }
