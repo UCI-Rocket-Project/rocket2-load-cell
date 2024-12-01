@@ -44,7 +44,7 @@ void setup() {
 
     // Initialize HX711
     scale.begin(DOUT_PIN, SCK_PIN);
-    scale.set_scale(-3250.0f/2); // Adjust based on calibration
+    scale.set_scale(-3250.0f); // Adjust based on calibration
     scale.tare();             // Zero the scale
     Serial.println("Setup complete. Ready to serve clients.");
 }
@@ -61,6 +61,8 @@ void loop() {
                 // Read force value
                 float force = scale.get_units(1); // Average over 1 reading
                 Packet data(millis(), force);    // Create a data packet
+
+                Serial.println(force);
 
                 // Serialize data
                 uint8_t dataBuffer[sizeof(data)];
