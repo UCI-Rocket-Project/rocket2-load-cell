@@ -19,8 +19,8 @@ fp-info-cache
 *.FCStd1
 
 # Fabrication files
-fab/
-fabrication/
-*.zip
-*.csv
-*.xml
+# fab/
+# fabrication/
+# *.zip
+# *.csv
+# *.xml
