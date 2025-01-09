@@ -5290,28 +5290,6 @@
 			)
 		)
 	)
-	(global_label "ETH_CTS"
-		(shape input)
-		(at 66.04 86.36 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "3918c9b9-ebb6-4b26-847d-bc4828e8f96f")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 76.887 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "MEM_MOSI"
 		(shape input)
 		(at 66.04 73.66 0)
@@ -5598,28 +5576,6 @@
 			)
 		)
 	)
-	(global_label "ETH_~{RST}"
-		(shape input)
-		(at 66.04 76.2 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "6ae64030-046b-4ac3-a285-fe808a68c9b5")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 76.887 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "HSE_IN"
 		(shape input)
 		(at 91.44 127 0)
@@ -5884,6 +5840,28 @@
 			)
 		)
 	)
+	(global_label "ETH_CTS"
+		(shape input)
+		(at 66.04 76.2 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b62ceb45-7392-4cd2-9d5d-cd5c040c2ac5")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 76.887 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "ETH_TX"
 		(shape input)
 		(at 243.84 149.86 180)
@@ -6007,6 +5985,28 @@
 		(uuid "e0b748c4-2690-43a0-949c-49e1ee2aba06")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 76.887 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "ETH_~{RST}"
+		(shape input)
+		(at 66.04 86.36 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "e9858f94-8ef7-423a-beb1-0a136a5ae85e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 76.887 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
