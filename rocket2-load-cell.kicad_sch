@@ -3246,189 +3246,6 @@
 				)
 			)
 		)
-		(symbol "UCIRP-LoadCell:UA7812CKCS"
-			(pin_names
-				(offset 0.254)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 2.54 0)
-				(effects
-					(font
-						(size 1.524 1.524)
-					)
-				)
-			)
-			(property "Value" "UA7812CKCS"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.524 1.524)
-					)
-				)
-			)
-			(property "Footprint" "KCS0003B"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(italic yes)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "UA7812CKCS"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(italic yes)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "UA7812CKCS"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "KCS0003B"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "UA7812CKCS_0_1"
-				(polyline
-					(pts
-						(xy -15.24 -7.62) (xy 15.24 -7.62)
-					)
-					(stroke
-						(width 0.2032)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -15.24 7.62) (xy -15.24 -7.62)
-					)
-					(stroke
-						(width 0.2032)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 15.24 -7.62) (xy 15.24 7.62)
-					)
-					(stroke
-						(width 0.2032)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 15.24 7.62) (xy -15.24 7.62)
-					)
-					(stroke
-						(width 0.2032)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin power_in line
-					(at -20.32 2.54 0)
-					(length 5.08)
-					(name "INPUT"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 20.32 -5.08 180)
-					(length 5.08)
-					(name "COMMON"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 20.32 2.54 180)
-					(length 5.08)
-					(name "OUTPUT"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 		(symbol "load-cell-lib:ADS1219"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -4148,34 +3965,16 @@
 		(uuid "2da9ba0e-ca64-4ece-950c-888c6d492568")
 	)
 	(junction
-		(at 114.3 142.24)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "33ad6bf5-defa-4145-9e5f-7c88219b8f0f")
-	)
-	(junction
 		(at 267.97 64.77)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3ab60a81-fab3-4a15-9189-98eaf4c59673")
 	)
 	(junction
-		(at 161.29 153.67)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "42161766-c5d1-44b1-bfb3-f78616f0d1c1")
-	)
-	(junction
 		(at 273.05 68.58)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "591e82cf-dae3-45ae-91d0-d86a77c17964")
-	)
-	(junction
-		(at 157.48 153.67)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "59c772c6-d959-412d-b0c2-4921893f6a0b")
 	)
 	(junction
 		(at 151.13 66.04)
@@ -4200,12 +3999,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "769b3dcb-7993-4e7d-be25-2ab3dda597bb")
-	)
-	(junction
-		(at 114.3 153.67)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7ad7c99f-9533-46e1-ad1f-d27651e4ca13")
 	)
 	(junction
 		(at 76.2 182.88)
@@ -4254,12 +4047,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e9295aa4-a22c-464e-a6e4-cade662622a3")
-	)
-	(junction
-		(at 114.3 146.05)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f8d82b9a-b4f7-48b8-85de-022b66767691")
 	)
 	(junction
 		(at 48.26 49.53)
@@ -4503,16 +4290,6 @@
 	)
 	(wire
 		(pts
-			(xy 157.48 142.24) (xy 157.48 146.05)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1daafe54-f1c0-412e-b7e8-5490199423c2")
-	)
-	(wire
-		(pts
 			(xy 55.88 49.53) (xy 55.88 50.8)
 		)
 		(stroke
@@ -4533,7 +4310,7 @@
 	)
 	(wire
 		(pts
-			(xy 161.29 156.21) (xy 160.02 156.21)
+			(xy 142.24 152.4) (xy 140.97 152.4)
 		)
 		(stroke
 			(width 0)
@@ -4550,16 +4327,6 @@
 			(type default)
 		)
 		(uuid "2205fce5-ac49-45d7-9228-3c817b255e7a")
-	)
-	(wire
-		(pts
-			(xy 161.29 153.67) (xy 157.48 153.67)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "23ecf36c-569f-4aaa-aced-4c99627ff985")
 	)
 	(wire
 		(pts
@@ -4643,23 +4410,13 @@
 	)
 	(wire
 		(pts
-			(xy 160.02 156.21) (xy 160.02 157.48)
+			(xy 140.97 152.4) (xy 140.97 153.67)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "41a74e56-ae13-4880-915d-98a835543f26")
-	)
-	(wire
-		(pts
-			(xy 114.3 146.05) (xy 114.3 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4386e49c-ec54-4d04-bb68-f44bb43ff3a2")
 	)
 	(wire
 		(pts
@@ -4993,16 +4750,6 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 153.67) (xy 114.3 153.67)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ad563a6c-95f9-458b-bc3c-c3ebc31d29f5")
-	)
-	(wire
-		(pts
 			(xy 198.12 64.77) (xy 218.44 64.77)
 		)
 		(stroke
@@ -5010,16 +4757,6 @@
 			(type default)
 		)
 		(uuid "ae0a4214-a1dd-4f50-982d-71b6c2f67eb6")
-	)
-	(wire
-		(pts
-			(xy 114.3 142.24) (xy 157.48 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b14c62fb-bc7e-4998-a74c-d76967f22d7d")
 	)
 	(wire
 		(pts
@@ -5150,16 +4887,6 @@
 			(type default)
 		)
 		(uuid "d1881664-a7ab-492c-9175-801d89a951af")
-	)
-	(wire
-		(pts
-			(xy 157.48 153.67) (xy 154.94 153.67)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d27d66ad-d6e3-4a26-8742-3d0824272633")
 	)
 	(wire
 		(pts
@@ -5450,9 +5177,9 @@
 		)
 		(uuid "41e802d0-c7f4-4c10-8756-44bcaf9100d5")
 	)
-	(text "9V Input, using crimped wires from (5V Lipo battery)\n"
+	(text "5V CCCV Input\n"
 		(exclude_from_sim no)
-		(at 148.59 137.414 0)
+		(at 142.24 137.16 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6353,7 +6080,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 166.37 153.67 0)
+		(at 147.32 149.86 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6361,7 +6088,7 @@
 		(dnp no)
 		(uuid "0077c2f4-8992-4511-9f1b-0dc4d6412ddc")
 		(property "Reference" "J2"
-			(at 168.91 153.6699 0)
+			(at 149.86 149.8599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6370,7 +6097,7 @@
 			)
 		)
 		(property "Value" "Screw_Terminal_01x02"
-			(at 152.4 160.782 0)
+			(at 133.35 156.972 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6379,7 +6106,7 @@
 			)
 		)
 		(property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal"
-			(at 166.37 153.67 0)
+			(at 147.32 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6388,7 +6115,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 166.37 153.67 0)
+			(at 147.32 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6397,7 +6124,7 @@
 			)
 		)
 		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 166.37 153.67 0)
+			(at 147.32 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6487,7 +6214,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 160.02 157.48 0)
+		(at 140.97 153.67 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6495,7 +6222,7 @@
 		(dnp no)
 		(uuid "066fddd4-1f7b-41a2-bbc6-7d61f2b61f4a")
 		(property "Reference" "#PWR044"
-			(at 160.02 163.83 0)
+			(at 140.97 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6504,7 +6231,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 157.226 157.734 0)
+			(at 138.176 153.924 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6512,7 +6239,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 160.02 157.48 0)
+			(at 140.97 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6521,7 +6248,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 160.02 157.48 0)
+			(at 140.97 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6530,7 +6257,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 160.02 157.48 0)
+			(at 140.97 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6910,7 +6637,7 @@
 	)
 	(symbol
 		(lib_id "power:VBUS")
-		(at 161.29 153.67 0)
+		(at 142.24 149.86 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6918,7 +6645,7 @@
 		(dnp no)
 		(uuid "16aa90eb-2aff-4574-bb06-6c0c3a38c5a4")
 		(property "Reference" "#PWR037"
-			(at 161.29 157.48 0)
+			(at 142.24 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6926,8 +6653,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VIN"
-			(at 163.068 149.606 0)
+		(property "Value" "VBUS"
+			(at 144.018 145.796 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6935,7 +6662,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 161.29 153.67 0)
+			(at 142.24 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6944,7 +6671,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 161.29 153.67 0)
+			(at 142.24 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6953,7 +6680,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"VBUS\""
-			(at 161.29 153.67 0)
+			(at 142.24 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7033,78 +6760,6 @@
 			(project "rocket2-load-cell"
 				(path "/d1f04dc8-a56c-4379-8ad0-2916e7244fc3"
 					(reference "#PWR017")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "UCIRP-LoadCell:UA7812CKCS")
-		(at 134.62 151.13 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "1b25be0f-79f9-4a73-80d3-bd7f9dd4696b")
-		(property "Reference" "U4"
-			(at 134.62 148.082 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Value" "UA7812CKCS"
-			(at 134.62 140.97 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Footprint" "KCS0003B"
-			(at 134.62 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "UA7812CKCS"
-			(at 134.62 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 134.62 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "3"
-			(uuid "eb7209b1-3bf3-4506-b147-b556ab8fe2e2")
-		)
-		(pin "1"
-			(uuid "baa8ca91-3cc0-468e-811e-85f9c08a4300")
-		)
-		(pin "2"
-			(uuid "18033757-4eb3-4ad5-9352-8fc5bb51b24a")
-		)
-		(instances
-			(project "rocket2-load-cell"
-				(path "/d1f04dc8-a56c-4379-8ad0-2916e7244fc3"
-					(reference "U4")
 					(unit 1)
 				)
 			)
@@ -8026,72 +7681,6 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 114.3 142.24 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "4c07dc03-f120-46db-96ea-1a7d07fe6b3a")
-		(property "Reference" "#PWR033"
-			(at 114.3 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 114.3 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 114.3 142.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 114.3 142.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 114.3 142.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "68f134a1-bb00-4fcd-a6b4-edcfa1b8efd6")
-		)
-		(instances
-			(project "rocket2-load-cell"
-				(path "/d1f04dc8-a56c-4379-8ad0-2916e7244fc3"
-					(reference "#PWR033")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
 		(at 248.92 91.44 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8287,76 +7876,6 @@
 			(project "rocket2-load-cell"
 				(path "/d1f04dc8-a56c-4379-8ad0-2916e7244fc3"
 					(reference "#PWR049")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 114.3 149.86 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "56189b3f-1436-41e5-9b93-d28d03159853")
-		(property "Reference" "C12"
-			(at 118.11 148.5899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" ".1uF"
-			(at 118.11 151.1299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 115.2652 153.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 114.3 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 114.3 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "08a9ac94-0e5d-434a-9161-cd8ee6dba088")
-		)
-		(pin "1"
-			(uuid "7c2daed1-c16d-410a-8d1f-d8151abc5aae")
-		)
-		(instances
-			(project "rocket2-load-cell"
-				(path "/d1f04dc8-a56c-4379-8ad0-2916e7244fc3"
-					(reference "C12")
 					(unit 1)
 				)
 			)
@@ -10752,75 +10271,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 157.48 149.86 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "bc0a4c9c-30cd-4fdf-9405-bebf3b9bbfbf")
-		(property "Reference" "C10"
-			(at 151.892 146.304 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" ".33uF"
-			(at 151.13 148.082 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 158.4452 153.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 157.48 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 157.48 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "cfee4dbc-ab19-412b-a8a2-d1c6966b1327")
-		)
-		(pin "1"
-			(uuid "447f52ec-3c4d-4ae7-954f-2fb26825b627")
-		)
-		(instances
-			(project "rocket2-load-cell"
-				(path "/d1f04dc8-a56c-4379-8ad0-2916e7244fc3"
-					(reference "C10")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C_Small")
 		(at 20.32 27.94 0)
 		(unit 1)
@@ -12365,72 +11815,6 @@
 			(project "rocket2-load-cell"
 				(path "/d1f04dc8-a56c-4379-8ad0-2916e7244fc3"
 					(reference "C18")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:VBUS")
-		(at 109.22 153.67 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f5c5b5b8-0a2d-4c2a-950a-ba92283aef6a")
-		(property "Reference" "#PWR024"
-			(at 109.22 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "VBUS"
-			(at 109.22 148.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 109.22 153.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 109.22 153.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VBUS\""
-			(at 109.22 153.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "5be616c6-13cd-49b0-a6a5-b516b8eedb68")
-		)
-		(instances
-			(project "rocket2-load-cell"
-				(path "/d1f04dc8-a56c-4379-8ad0-2916e7244fc3"
-					(reference "#PWR024")
 					(unit 1)
 				)
 			)
