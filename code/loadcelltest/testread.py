@@ -3,11 +3,11 @@ import struct
 import time
 
 # Define Arduino server settings
-ARDUINO_IP = '10.0.255.2'  # IP address of the Arduino
-PORT = 10069                  # Port to connect to
+ARDUINO_IP = '10.0.2.2'  # IP address of the Arduino
+PORT = 10001                  # Port to connect to
 
 # Define the packet format
-PACKET_FORMAT = 'Lf'  # Unsigned long (timestamp) and float (force)
+PACKET_FORMAT = '<Lf'  # Add 4 padding bytes (or use '12s' for raw data)
 
 def connect_to_arduino():
     try:
@@ -33,8 +33,10 @@ def receive_data(client_socket):
                 timestamp, force = struct.unpack(PACKET_FORMAT, data)
                 print(f"Timestamp: {timestamp}, Force: {force}")
             else:
+                print(packet_size)
+                print(len(data))
                 print("Incomplete data received")
-                break
+                
     except Exception as e:
         print(f"Error receiving data: {e}")
     finally:

@@ -21,13 +21,14 @@
 #include <string.h>
 #include <stdbool.h>
 // ADS1219 I²C address (7-bit <<1 for HAL)
-#define ADS1219_I2C_ADDR        (0x40 << 1)
+#define ADS1219_I2C_ADDR        (0x40 <<1)
 
 // ADS1219 command codes:
 #define ADS1219_CMD_RESET       0x06  // soft reset
 #define ADS1219_CMD_START_SYNC  0x08  // start (sync) conversion
 #define ADS1219_CMD_READ_DATA   0x10  // read 3 data bytes
-#define ADS1219_CMD_STATUS_READ   0x20
+#define ADS1219_CMD_STATUS_READ   0x24
+#define ADS1219_CMD_WRITE_CONFIG 0x40
 
 
 // Our 7-byte packet: 4-byte timestamp + 3-byte ADC reading, no padding
@@ -37,10 +38,12 @@ typedef struct {
   uint8_t  adc24[3];
 } DataPacket;
 #pragma pack(pop)
+#define SYNC0 0xAA
+#define SYNC1 0x55
 
 // Lantronix XPort reset on PA11
 #define XPORT_RST_GPIO_Port   GPIOA
-#define XPORT_RST_Pin         GPIO_PIN_11
+#define XPORT_RST_Pin         GPIO_PIN_12
 /* USER CODE END Includes */
 /* USER CODE END Includes */
 
@@ -69,7 +72,7 @@ I2C_HandleTypeDef hi2c1;
 
 SPI_HandleTypeDef hspi1;
 
-USART_HandleTypeDef husart1;
+UART_HandleTypeDef  huart1;
 
 /* USER CODE BEGIN PV */
 static DataPacket txPacket;
@@ -81,11 +84,13 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_SPI1_Init(void);
-static void MX_USART1_Init(void);
+static void MX_UART1_Init(void);
 /* USER CODE BEGIN PFP */
 static int32_t ADS1219_ReadRaw(void);
 static bool     ADS1219_dataReady(void);
 static int32_t  ADS1219_readConversion(void);
+
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -98,7 +103,8 @@ static int32_t ADS1219_ReadRaw(void)
 
     // 1) START_SYNC
     cmd = ADS1219_CMD_START_SYNC;
-    HAL_I2C_Master_Transmit(&hi2c1, ADS1219_I2C_ADDR, &cmd, 1, 100);
+    HAL_StatusTypeDef check =  HAL_I2C_Master_Transmit(&hi2c1, ADS1219_I2C_ADDR, &cmd, 1, 100);
+
 
     // 2) wait for DRDY on PB4 (active low)
     while (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_4) == GPIO_PIN_SET) { }
@@ -121,9 +127,14 @@ static bool ADS1219_dataReady(void)
     uint8_t cmd = ADS1219_CMD_STATUS_READ;
     uint8_t status = 0;
 
-    if (HAL_I2C_Master_Transmit(&hi2c1, ADS1219_I2C_ADDR, &cmd, 1, 100) != HAL_OK)
+    HAL_StatusTypeDef check = HAL_I2C_Master_Transmit(&hi2c1, ADS1219_I2C_ADDR, &cmd, 1, 100);
+
+
+    if ( check != HAL_OK)
         return false;
-    if (HAL_I2C_Master_Receive(&hi2c1, ADS1219_I2C_ADDR, &status, 1, 100) != HAL_OK)
+    check = HAL_I2C_Master_Receive(&hi2c1, ADS1219_I2C_ADDR, &status, 1, 100);
+
+    if (check != HAL_OK)
         return false;
 
     return (status & 0x80) != 0;
@@ -186,14 +197,23 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   MX_SPI1_Init();
-  MX_USART1_Init();
+  MX_UART1_Init();
   /* USER CODE BEGIN 2 */
   // reset ads1219 following arduino library
 
   {
     uint8_t cmd = ADS1219_CMD_RESET;
-    HAL_I2C_Master_Transmit(&hi2c1, ADS1219_I2C_ADDR, &cmd, 1, 100);
+    HAL_StatusTypeDef check = HAL_I2C_Master_Transmit(&hi2c1, ADS1219_I2C_ADDR, &cmd, 1, 100);
     HAL_Delay(1);  // tRSSTA ≥100 µs
+  }
+  {
+    uint8_t config[] = {
+      ADS1219_CMD_WRITE_CONFIG,
+      0x2C
+    };
+    uint8_t hdr[2] = { SYNC0, SYNC1 };
+    HAL_UART_Transmit(&huart1, hdr, 2, 10);
+    HAL_I2C_Master_Transmit(&hi2c1, ADS1219_I2C_ADDR, config, 2, 100);
   }
 
 
@@ -201,6 +221,7 @@ int main(void)
   HAL_GPIO_WritePin(XPORT_RST_GPIO_Port, XPORT_RST_Pin, GPIO_PIN_RESET);
   HAL_Delay(10);   // hold reset low ≥10 ms
   HAL_GPIO_WritePin(XPORT_RST_GPIO_Port, XPORT_RST_Pin, GPIO_PIN_SET);
+  HAL_Delay(800);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -215,7 +236,8 @@ int main(void)
 	    // 2) trigger a conversion
 	    {
 	      uint8_t cmd = ADS1219_CMD_START_SYNC;
-	      HAL_I2C_Master_Transmit(&hi2c1, ADS1219_I2C_ADDR, &cmd, 1, 100);
+	      HAL_StatusTypeDef check = HAL_I2C_Master_Transmit(&hi2c1, ADS1219_I2C_ADDR, &cmd, 1, 100);
+	      HAL_Delay(1);  // tRSSTA ≥100 µs
 	    }
 
 	    // 3) wait until the library‐style dataReady() returns true
@@ -230,11 +252,11 @@ int main(void)
 	    }
 
 	    // 5) send your 7-byte packet over UART1 → XPort
-	    HAL_USART_Transmit(&husart1,
+	    HAL_UART_Transmit(&huart1,
 	                      (uint8_t *)&txPacket,
 	                      sizeof(txPacket),
 	                      100);
-	  /* USER CODE END 3 */
+//	  /* USER CODE END 3 */
 
   }
   /* USER CODE END 3 */
@@ -351,36 +373,35 @@ static void MX_SPI1_Init(void)
 }
 
 /**
-  * @brief USART1 Initialization Function
+  * @brief uart1 Initialization Function
   * @param None
   * @retval None
   */
-static void MX_USART1_Init(void)
+static void MX_UART1_Init(void)
 {
 
-  /* USER CODE BEGIN USART1_Init 0 */
+  /* USER CODE BEGIN uart1_Init 0 */
 
-  /* USER CODE END USART1_Init 0 */
+  /* USER CODE END uart1_Init 0 */
 
-  /* USER CODE BEGIN USART1_Init 1 */
+  /* USER CODE BEGIN uart1_Init 1 */
 
-  /* USER CODE END USART1_Init 1 */
-  husart1.Instance = USART1;
-  husart1.Init.BaudRate = 115200;
-  husart1.Init.WordLength = USART_WORDLENGTH_8B;
-  husart1.Init.StopBits = USART_STOPBITS_1;
-  husart1.Init.Parity = USART_PARITY_NONE;
-  husart1.Init.Mode = USART_MODE_TX_RX;
-  husart1.Init.CLKPolarity = USART_POLARITY_LOW;
-  husart1.Init.CLKPhase = USART_PHASE_1EDGE;
-  husart1.Init.CLKLastBit = USART_LASTBIT_DISABLE;
-  if (HAL_USART_Init(&husart1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN USART1_Init 2 */
+  /* USER CODE END uart1_Init 1 */
+	huart1.Instance             = USART1;               // same HW block
+	huart1.Init.BaudRate        = 9600;
+	huart1.Init.WordLength      = UART_WORDLENGTH_8B;
+	huart1.Init.StopBits        = UART_STOPBITS_1;
+	huart1.Init.Parity          = UART_PARITY_NONE;
+	huart1.Init.Mode            = UART_MODE_TX_RX;
+	huart1.Init.HwFlowCtl       = UART_HWCONTROL_NONE;
+	huart1.Init.OverSampling    = UART_OVERSAMPLING_16;
+	if (HAL_UART_Init(&huart1) != HAL_OK)
+	  {
+		Error_Handler();
+	  }
+	  /* USER CODE BEGIN uart1_Init 2 */
 
-  /* USER CODE END USART1_Init 2 */
+  /* USER CODE END uart1_Init 2 */
 
 }
 
@@ -400,13 +421,13 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3|GPIO_PIN_11|GPIO_PIN_12, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3|GPIO_PIN_12, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : PA3 PA11 PA12 */
-  GPIO_InitStruct.Pin = GPIO_PIN_3|GPIO_PIN_11|GPIO_PIN_12;
+  GPIO_InitStruct.Pin = GPIO_PIN_3|GPIO_PIN_12;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

@@ -495,7 +495,7 @@
       "plot": "fab/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "rocket2-load-cell.step",
       "svg": "",
       "vrml": ""
     },
